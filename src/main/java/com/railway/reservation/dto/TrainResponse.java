@@ -1,15 +1,7 @@
-package com.railway.reservation.entity;
+package com.railway.reservation.dto;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+public class TrainResponse {
 
-@Entity
-public class Train {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
     private String trainNumber;
     private String trainName;
     private String source;
@@ -17,24 +9,7 @@ public class Train {
     private int totalSeats;
     private int availableSeats;
 
-    public Train() {
-    }
-
-    public Train(Long id, String trainName, String source, String destination, int totalSeats, int availableSeats) {
-        this.id = id;
-        this.trainName = trainName;
-        this.source = source;
-        this.destination = destination;
-        this.totalSeats = totalSeats;
-        this.availableSeats = availableSeats;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+    public TrainResponse() {
     }
 
     public String getTrainNumber() {
