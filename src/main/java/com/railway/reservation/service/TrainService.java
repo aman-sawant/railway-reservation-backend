@@ -40,8 +40,8 @@ public class TrainService {
         for(Train train : trains){
 
             TrainResponse dto = new TrainResponse();
+            dto.setId(train.getId());
             dto.setTrainNumber(train.getTrainNumber());
-
             dto.setTrainName(train.getTrainName());
             dto.setSource(train.getSource());
             dto.setDestination(train.getDestination());
@@ -55,8 +55,8 @@ public class TrainService {
         List<TrainResponse> response=new ArrayList<>();
         for(Train train:trains){
             TrainResponse dto = new TrainResponse();
+            dto.setId(train.getId());
             dto.setTrainNumber(train.getTrainNumber());
-
             dto.setTrainName(train.getTrainName());
             dto.setSource(train.getSource());
             dto.setDestination(train.getDestination());

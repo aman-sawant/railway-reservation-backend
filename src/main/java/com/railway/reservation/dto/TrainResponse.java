@@ -1,7 +1,7 @@
 package com.railway.reservation.dto;
 
 public class TrainResponse {
-
+    private Long id;
     private String trainNumber;
     private String trainName;
     private String source;
@@ -10,6 +10,24 @@ public class TrainResponse {
     private int availableSeats;
 
     public TrainResponse() {
+    }
+
+    public TrainResponse(Long id, String trainNumber, String trainName, String source, String destination, int totalSeats, int availableSeats) {
+        this.id = id;
+        this.trainNumber = trainNumber;
+        this.trainName = trainName;
+        this.source = source;
+        this.destination = destination;
+        this.totalSeats = totalSeats;
+        this.availableSeats = availableSeats;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getTrainNumber() {
