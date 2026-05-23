@@ -12,15 +12,18 @@ public class Booking {
     private String passengerName;
     private LocalDate journeyDate;
     @ManyToOne
+    private User user;
+    @ManyToOne
     private Train train;
 
     public Booking() {
     }
 
-    public Booking(Long id, String passengerName, LocalDate journeyDate, Train train) {
+    public Booking(Long id, String passengerName, LocalDate journeyDate, User user, Train train) {
         this.id = id;
         this.passengerName = passengerName;
         this.journeyDate = journeyDate;
+        this.user = user;
         this.train = train;
     }
 
@@ -46,6 +49,14 @@ public class Booking {
 
     public void setJourneyDate(LocalDate journeyDate) {
         this.journeyDate = journeyDate;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public Train getTrain() {
