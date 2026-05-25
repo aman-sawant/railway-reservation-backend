@@ -64,25 +64,16 @@ public class JwtUtil {
     }
 
     // Extract Email
-    public String extractEmail(
-            String token
-    ){
+    public String extractEmail(String token){
 
-        return extractClaims(token)
-                .getSubject();
-
+        return extractClaims(token).getSubject();
     }
 
     // Validate Token
-    public boolean validateToken(
-            String token,
-            String email
-    ){
+    public boolean validateToken(String token, String email){
 
-        String extractedEmail =
-                extractEmail(token);
-
-        return extractedEmail.equals(email);
+        String extractedEmail = extractEmail(token);
+        return extractedEmail.equals(email)&&!isTokenExpired(token);
 
     }
 
@@ -97,6 +88,18 @@ public class JwtUtil {
         return Keys.hmacShaKeyFor(
                 keyBytes
         );
+
+    }
+    public boolean isTokenExpired(
+            String token
+    ){
+        System.out.println(
+                extractClaims(token)
+                        .getExpiration()
+        );
+        return extractClaims(token)
+                .getExpiration()
+                .before(new Date());
 
     }
 

@@ -1,11 +1,14 @@
 package com.railway.reservation.controller;
 
 import com.railway.reservation.dto.BookingRequest;
+import com.railway.reservation.dto.BookingResponse;
 import com.railway.reservation.service.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/book")
@@ -22,5 +25,11 @@ public class BookingController {
     public ResponseEntity<String> cancelBooking(@PathVariable Long bookingId){
         String response= bookingService.cancelTicket(bookingId);
         return ResponseEntity.ok(response);
+    }
+    @GetMapping("/my")
+    public ResponseEntity<List<BookingResponse>> getBookings(){
+        List<BookingResponse> bookings=bookingService.getBookings();
+
+        return ResponseEntity.ok(bookings);
     }
 }

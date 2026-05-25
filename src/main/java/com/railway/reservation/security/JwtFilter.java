@@ -82,7 +82,7 @@ public class JwtFilter
                     claims.getSubject();
 
         }
-
+        System.out.println(email);
         // Authenticate user
         if(email != null &&
                 SecurityContextHolder
@@ -95,13 +95,13 @@ public class JwtFilter
                             .loadUserByUsername(
                                     email
                             );
-
+            System.out.println(token);
             // Validate token
             if(jwtUtil.validateToken(
                     token,
                     userDetails.getUsername()
             )){
-
+                System.out.println("Validating...");
                 UsernamePasswordAuthenticationToken
                         authToken =
 
